@@ -1,0 +1,26 @@
+--> Javascript is a synchronous language in which the code is executed in the flow as it is written
+-->Java is asynchrounous language because of use of threads in it.
+--> Javascript is a single threaded language.
+
+--> Execution Phase -- Each execution wait for the last one to complete it before executing current one.
+
+                                                TWO TYPES OF CODE IN JAVASCRIPT
+                            1.BLOCKING CODE --> Block the flow of the progrm and read the file synchronously
+                            2.Non Blocking Code --> Dont block the flow of file and read the file Async.
+
+
+--> JS ENGINE -->> 1. Memory Heap
+                   2. Call Stack --> Global Execution Context
+
+--> Web Api -->>> For Async Code  --> 1. DOM Api
+                                      2.Set Timeout
+                                      3.Set Interval
+
+                                      --> Register CallBack --> 2 MIN Bad set timeout / events execute krna hai
+
+                                      --> This Register callback now connected to the Task queue.
+
+                                      -->Task Queue will give the task back to the call stack to execute.
+
+          ---> New API  are added in the javascript.
+                ---> Fetch API -- It also work on the queue but the High priority queue.(PROMISES)

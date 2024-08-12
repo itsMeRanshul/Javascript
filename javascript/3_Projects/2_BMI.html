@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI CALCULATOR</title>
+    <style>
+        .main{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            height: 30%;
+            width: 50%;
+            background-color: grey;    
+        }
+        .cal{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        input{
+            width: 90%;
+            height: 30px;
+        }
+        .button{
+            margin: 30px;
+            width: 20%;
+            height: 5%;
+            background-color: rgb(91, 90, 90);
+        }
+        .button:hover{
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body style="background-color: black;color: white;">
+    <div class="main">
+        <div class="container">
+            <div class="cal">
+                <input type="number" placeholder="WEIGHT" id="wei">
+            </div>
+            <div class="cal">
+                <input type="number" placeholder="HEIGHT" id="hei">
+            </div>
+        </div>
+        <button class="button" >
+            CALCULATE
+        </button>
+        <div class="result"></div>
+    </div>
+</body>
+<script>
+    const cont=document.querySelector('.button')
+    console.log(cont)
+    cont.addEventListener('click',function(e){
+        const heig=parseInt(document.querySelector('#hei').value)
+        const weig=parseInt(document.querySelector('#wei').value)
+        const res=document.querySelector('.result')
+        if(heig==' ' || heig<=0 || heig>215 || isNaN(heig))
+        {
+            const addtext=document.createTextNode("write the appropriate information")
+            res.replaceWith(addtext)
+        }else if(weig==' ' || weig<=0 || weig>215 || isNaN(weig))
+        {
+            const addtext=document.createTextNode("write the appropriate information")
+            res.replaceWith(addtext)
+        }else{
+            const ans=(weig/((heig*heig)/10000)).toFixed(2)
+            if(ans<18.6){
+                const addtext=document.createTextNode(`UNDERWEIGHT ${ans}`)
+                res.replaceWith(addtext)
+                console.log(res)
+            }else if(ans>18.6 && ans<24.9){
+                const addtext=document.createTextNode(`NORMAL RANGE ${ans}`)
+                res.replaceWith(addtext)
+                console.log(res)
+            }else if(ans>24.6){
+                const addtext=document.createTextNode(`OVERWEIGHT ${ans}`)
+                res.replaceWith(addtext)
+                console.log(res)
+            }
+            
+        }
+    })
+</script>
+</html>

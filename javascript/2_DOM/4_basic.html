@@ -1,0 +1,48 @@
+<!--EDIT AND REMOVE ELEMNT IN DOM-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and Remove element</title>
+</head>
+<body style="background-color: black;color: white;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+    
+</body>
+<script>
+    function createEle(item){
+        const element=document.createElement("li")
+        console.log(element)
+        const addText=document.createTextNode(item)
+        element.appendChild(addText)
+        const main=document.querySelector('.language')
+        main.appendChild(element)
+    }
+     
+     let ar=["java","python","c++","c"]
+
+     ar.forEach((item) => createEle(item))
+
+     // Edit the current language
+     const lan=document.querySelector("li:nth-child(3)")
+     console.log(lan.innerHTML)
+     const addEle=document.createElement("li")
+     addEle.textContent="Mojo"
+     lan.replaceWith(addEle)
+
+     // Edit
+     const secondlan=document.querySelector("li:nth-child(1)")
+     console.log(secondlan.innerHTML)
+     const add=document.createElement("li")
+     add.textContent="Typescript"
+     secondlan.replaceWith(add)
+
+     //remove
+     const rem=document.querySelector("li:last-child")
+     rem.remove()
+     
+</script>
+</html>

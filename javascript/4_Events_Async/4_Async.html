@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black;color: white;">
+
+    <h1>Btech Cse</h1>
+    <button class="start">Start</button>
+    <button class="stop">Stop</button>
+</body>
+<script>
+    
+    const text=document.querySelector('h1')
+    const changeMe =function(){
+        const element=document.createElement('h1')
+        element.textContent="MBA"
+        text.replaceWith(element)
+        console.log(element)
+    }
+    let but
+    document.querySelector('.start').addEventListener('click',function(){
+        but=setInterval(changeMe,2000)
+    })
+
+    document.querySelector('.stop').addEventListener('click',function(){
+        clearInterval(but)
+    })
+
+</script>
+</html>

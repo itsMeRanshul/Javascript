@@ -1,0 +1,61 @@
+<!--Document Object Model
+                                                                 WINDOW
+                                                                   |
+                                                                   |
+                                                                DOCUMENT
+                                                                   |
+                                                                   |
+                                               -------------------HTML-------------------
+                                               |                                        |
+                                               |                                        |
+                                              HEAD                                    BODY
+                                               |                                        |
+                                               |                                        |
+                                               |                                       DIV 
+                                               |                                        |
+                                  --------------------------                 ------------------------
+                                  |                        |                 |                      |
+                                  |                        |                 |                      |
+                                 TITLE                    META               H1                    P tag
+                                  |                        |                 |                      |
+                               textnode                   attribute         textnode               textnode
+
+    ----<<< Textcontent --<< It will give the complete value inside the html tag including the hidden text also
+    ----<<< InnerText --<< It will only give the text which is not hidden.
+    ----<<< query selector --<< It will give us the first tag of the code which we have selected using queryselector
+    ----<<< querySelectorAll --<< select all the tags of the page
+    ----<<< NodeList --<< It is similar to array but not a complete array
+    ----<<< HTML Collection 
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation</title>
+    <style>
+        .bg_color{
+            background-color: black;
+            color: white;
+           
+        }
+    </style>
+</head>
+<body class="bg_color">
+    <div > 
+        <h1 id="hello" class="heading">Hello my name is ranshul<span style="display: none;"> ranshul here</span></h1>
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <h1>Lorem, ipsum dolor.</h1>
+        <h1>Lorem ipsum dolor sit amet consectetur.</h1>
+        <input type="password">
+        <ol>
+            <li class="list-item">java</li>
+            <li class="list-item">c++</li>
+            <li class="list-item">python</li>
+            <li class="list-item">javascript</li>
+        </ol>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti ad, neque earum quas nostrum dignissimos facilis odio inventore dolorem? Tenetur similique voluptatem aliquid vero optio cum quod rem natus ipsam.</p>
+</div>
+    
+</body>
+</html>

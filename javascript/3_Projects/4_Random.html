@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Random number</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .container{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .text{
+            text-align: center;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+        .num{
+            height: 30px;
+            width: 200px;
+            margin: 20px;
+        }
+        .but{
+            background-color: rgb(181, 179, 179);
+            padding: 3px;
+        }
+        .info{
+            margin: 40px;
+        }
+
+    </style>
+</head>
+<body style="background-color: black;color: white;">
+    <h1>Number Guessing Game</h1>
+    <div class="text">Try to guess the random number between 1 to 100 in 10 chances</div>
+    <div class="container">
+       
+        <h2>GUESS THE NUMBER</h2>
+        <form>
+            <input type="number" placeholder="Number" class="num">
+            <input type="submit" value="submit" class="but">
+        </form>
+        <div class="info">
+            <p> Previous Guesses <span class="guesses"></span></p>
+            <p> Remaining chance<span class="chance">10</span></p>
+            <p class="lowHigh"> </p> 
+        </div>
+    </div>
+</body>
+<script>
+    const value=Math.floor(Math.random()*100+1)
+    const submit=document.querySelector('.but')
+    const guval=document.querySelector('.num')
+    const preVal=document.querySelector('.guesses')
+    const chanceLeft=document.querySelector('.chance')
+    const Lowhigh=document.querySelector('.lowHigh')
+    const startOver=document.querySelector('.info')
+    console.log(guval)
+
+    const p=document.createElement('p')
+    let playGame=true
+    let count =1
+    let preGuess=[]
+    if(playGame){
+    submit.addEventListener('click',function(e){
+        e.preventDefault();
+        const newval=parseInt(guval.value)
+        validateguess(newval)
+    })
+}
+
+    function validateguess(guess){
+        if(isNaN(guess))
+        {
+            alert('Enter the appropriate value')
+        }else if(guess<1){
+            alert('Enter the appropriate value')
+        }else if(guess>100){
+            alert('Enter the appropriate value')
+        }else{
+            preGuess.push(guess)
+            if(count===11){
+                displayGuess(guess)
+                displayMessage(`Game Over , random number is ${value}`)
+                endGame()
+            }else{
+                checkGuess(guess)
+                displayGuess(guess)
+            }
+        }
+    }
+    function checkGuess(guess){
+        if(guess===value){
+            displayMessage(`Found the right Guess which is ${guess}`)
+            endGame()
+        }else if(guess<value){
+            displayMessage('Number is TOO low')
+        }else if(guess>value){
+            displayMessage('Number is TOO High')
+        }
+    }
+    function displayGuess(guess){
+        guval.value='';
+        preVal.innerHTML=`${preGuess}, `
+        count++;
+        chanceLeft.innerHTML=`${11-count}`
+    }
+    function displayMessage(message){
+        Lowhigh.innerHTML=`<h3>${message}</h3>`;
+    }
+    function endGame(){
+        guval.value='';
+        guval.setAttribute('disabled','')
+        p.classList.add('button')
+        p.innerHTML=`<h3 class="newGame">Start New Game</h3>`
+        startOver.appendChild(p)
+        playGame=false
+        newGame()
+    }
+    function newGame(){
+        const newGameBut=document.querySelector('.newGame')
+        newGameBut.addEventListener('Click',function(e){
+            const value=Math.floor(Math.random()*100+1)
+            preGuess=[]
+            count=1
+            preVal.innerHTML=''
+            chanceLeft.innerHTML=`${11-count}`
+            guval.removeAttribute('disabled')
+            startOver.removeChild(p)
+            playGame=true
+        })
+    }
+</script>
+</html>

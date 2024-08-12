@@ -1,0 +1,64 @@
+<!-- 
+         API is used for communicating between frontend and backend.
+        *** Json formatter is the tool to read API
+        *** XMLHtttp Request API request is sended before the FETCH method
+
+        0 . Unsent -- Client is created but open() is not yet called .
+        1 . Open -- Open() is called .
+        2 . Header Recieved -- send() has been called .Header and status are avaliable
+        3 . Loading Downloading -- resposnseText Holds the partial data.
+        4 . Done -- The operation is completed .
+
+        XML Http Request is Known as Ajax Request. 
+
+        *** Console and more api's like document are not the part of javascript
+
+        ***console is the debbuging tool of the browser.
+
+
+        ***Javascript is run by the V8 ENGINE OR NODE JS ENVIRONMENT
+
+        *** V8 ENGINE IS WRITTEN IN C++
+        *** d8-console.cc is the real console written in c++
+-->
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Document</title>
+        </head>
+        <body>
+                <div class="insert">
+                        <button class="view">VIEW</button>
+                </div>
+                
+        </body>
+        <script>
+                const request='https://api.github.com/users/itsMeRanshul'
+                const xhr=new XMLHttpRequest
+                xhr.open('GET',request)
+                let foll
+                const butt=document.querySelector('.view')
+                butt/addEventListener('click',function(){
+                        xhr.onreadystatechange=function(){
+                console.log(xhr.readyState)
+                if(xhr.readyState === 4){
+                        const data=JSON.parse(this.responseText) // CONVERTING STRING INTO THE JSON OBJECT
+                        console.log(typeof data)
+                        foll=data.followers
+                        console.log(data)
+                        console.log(foll)
+                        const addtext=document.createElement('div')
+                        addtext.innerHTML=`<H1> FOLLOWERS COUNT -- ${foll}`
+                        document.querySelector('.insert').replaceWith(addtext)
+                 }
+                }
+                xhr.send()
+                })
+                
+                
+                
+
+        </script>
+        </html>

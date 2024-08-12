@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML EVENTS</title>
+</head>
+<body style="background-color: black; color: white;">
+    <h1 id="head">Images for Event Listener</h1>
+    <div>
+        <ul id="images">
+            <li><img width="150px" src="Screenshot 2024-06-01 224546.png" alt="photoshop" id="mus1"></li>
+            <li><img width="150px" src="Screenshot 2024-06-01 224841.png" alt="" id="mus2"></li>
+            <li><img width="150px" src="Screenshot 2024-06-01 225129.png" alt="" id="mus3"></li>
+            <li><img width="150" src="Screenshot 2024-06-01 230129.png" alt="" id="mus4"></li>
+            <li><a style="color: white;" href="https://www.google.com" id="link">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    /* Not a good method to add events provide less features
+    document.getElementById('mus2').onclick=function(){
+        alert('hello')
+    }
+
+    Event Listener can catch many events .
+
+    attachEvent() -: previous time 
+     jQuery
+
+    */
+   const element=document.getElementById('mus2')
+   element.addEventListener('click',(e)=>{
+   console.log(e)
+   },false)
+
+   /*
+     3rd input in the eventListener is for event propogation
+     
+     1.EVENT BUBBLING >>> Bubbling Up means it will go from smaller element to larger element. (false)
+     1.EVENT CAPTURING >>> Capturing will means it will go from larger element to smaller element. (True)
+
+
+     const element1=document.getElementById('images')
+   element1.addEventListener('click',(e)=>{
+   console.log("Parent element")
+   },false)
+   const element2=document.getElementById('mus2')
+   element2.addEventListener('click',(e)=>{
+   console.log("mushroom clicked")
+   e.stopPropagation() // stop the bubbling of the events
+   },false)
+
+
+                  Default prevented
+
+            document.getElementById('link').addEventListener('click',function(e){
+    e.preventDefault()
+    console.log('google clicked')
+   })
+*/
+   
+
+   // Types , Timestamp  defaultprevented
+   // target , toElement ,SrcElement
+   // ClienrX, clientY
+   //altKey,ctrlkey,shiftkey
+
+   document.getElementById('images').addEventListener('click',function(e){
+    console.log(e.target.parentNode)
+    console.log(e.target.tagName)
+    if(e.target.tagName=='IMG'){
+    const removeIt=e.target.parentNode
+   // removeIt.remove()
+   removeIt.parentNode.removeChild(removeIt)
+    }
+   })
+   
+</script>
+</html>

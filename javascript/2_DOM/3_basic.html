@@ -1,0 +1,27 @@
+<!--Creating new elements through java script-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element creation using Javascript</title>
+</head>
+<body style="background-color: black;color: white;">
+    
+</body>
+<script>
+    const div=document.createElement('div')
+    console.log(div)
+    div.className='first'
+    div.id=Math.floor(Math.random()*10)
+   // div.innerHTML="hello this is ranshul kumar jayant"
+   const addText=document.createTextNode("hello this is ranshul")
+   div.appendChild(addText)
+    div.setAttribute('title','index')
+    div.style.color='white'
+
+    // Attaching div to the HTML page from the memory
+
+    document.body.appendChild(div)
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASYNC</title>
+</head>
+<body style="background-color: black;color: white;">
+    <H1>ASYNC</H1>
+    <button id="but">Stop</button>
+</body>
+<script>
+    const name=function(){
+        console.log('ranshul')
+    }
+    
+    const changeName=function(){
+
+    const change=document.querySelector('H1')
+
+    const addText=document.createElement('h1')
+    addText.textContent='Ranshul kumar jayant'
+    change.replaceWith(addText)
+    }
+    const setButt=setTimeout(changeName,2000)
+
+    document.querySelector('#but').addEventListener('click',function(){
+        clearTimeout(setButt)
+        console.log('STOPPED')
+    })
+
+    /*
+        SetTimeout -- itne time ke baad bs ek bar function ke andr wala kam krunga
+
+        SetInterval -- Itne time ke baad function ke andr wala kam repeat krta hi jaunga.
+
+        setInterval(function(){
+        console.log('sneha')
+    },1000)
+    */
+
+    
+</script>
+</html>

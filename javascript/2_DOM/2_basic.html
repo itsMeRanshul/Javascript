@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic of Dom</title>
+    <style>
+        .bg-color{
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body class="bg-color">
+    <div class="parent">
+        <!--hello-->
+        <div class="child">Monday</div>
+        <div class="child">Tuesday</div>
+        <div class="child">wednesday</div>
+        <div class="child">thrusday</div>
+    </div>
+</body>
+<script>
+    const element=document.querySelector('.parent')
+    console.log(element)
+    console.log(element.children)// All Children of the parents
+    console.log(element.children[1].innerHTML)
+    for(let i=0;i<element.children.length;i++)
+    {
+        console.log(element.children[i].innerHTML)
+    }
+    element.children[1].style.backgroundColor="green"
+    element.children[1].style.padding="10px"
+    element.children[1].style.textAlign="center"
+
+    console.log(element.firstElementChild.innerHTML.charAt(5)) // first child
+    console.log(element.lastElementChild.innerHTML)// select last element
+
+    /* NOW MOVE FROM CHILD TO PARENT*/
+
+    const child=document.querySelector('.child')
+    console.log(child.innerHTML)
+    console.log(child.parentElement) // parent
+    console.log(child.nextElementSibling) //sibling
+
+    console.log("Nodes :",element.childNodes)// Only one line break count as text in HTML
+</script>
+</html>
